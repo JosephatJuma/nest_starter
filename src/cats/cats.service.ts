@@ -13,4 +13,7 @@ export class CatsService {
   deleteCat(cat: Cat) {
     this.cats.splice(this.cats.indexOf(cat), 1);
   }
+  finOneCat(name: string) {
+    return this.cats.find((cat) => cat.name === name);
+  }
 }
