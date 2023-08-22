@@ -10,4 +10,7 @@ export class CatsService {
   findAllCats(): Cat[] {
     return this.cats;
   }
+  deleteCat(cat: Cat) {
+    this.cats.splice(this.cats.indexOf(cat), 1);
+  }
 }

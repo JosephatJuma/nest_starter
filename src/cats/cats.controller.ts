@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Res } from '@nestjs/common';
-import { HttpStatus } from '@nestjs/common';
+import { HttpStatus, Delete } from '@nestjs/common';
 import { CreateCatDto } from './dto/create-cat.dto';
 import { Cat } from './interfaces/cat.interface';
 import { CatsService } from './cats.service';
@@ -15,5 +15,10 @@ export class CatsController {
   @Get()
   async findAll(): Promise<Cat[]> {
     return this.catsService.findAllCats();
+  }
+  @Delete()
+  async delete(@Res() res: any, @Body() cat: Cat) {
+    this.catsService.deleteCat(cat);
+    res.status(HttpStatus.ACCEPTED).send();
   }
 }
