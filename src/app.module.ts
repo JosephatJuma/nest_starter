@@ -6,10 +6,12 @@ import { CatsController } from './cats/cats.controller';
 import { CatsService } from './cats/cats.service';
 import { PrismaService } from './prisma/prisma.service';
 import { UserService } from './user/user.service';
+import { PostController } from './post/post.controller';
+import { PostService } from './post/post.service';
 
 @Module({
   imports: [],
-  controllers: [AppController, UserController, CatsController],
-  providers: [AppService, CatsService, PrismaService, UserService],
+  controllers: [AppController, UserController, CatsController, PostController],
+  providers: [AppService, CatsService, PrismaService, UserService, PostService],
 })
 export class AppModule {}
