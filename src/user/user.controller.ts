@@ -1,5 +1,5 @@
 import { Controller, Get, Post, HttpCode, Param } from '@nestjs/common';
-import { Body } from '@nestjs/common';
+import { Body, Delete } from '@nestjs/common';
 //import { CreateUserDto } from './create-user-dto';
 import { UserService } from './user.service';
 import { User as UserModel } from '@prisma/client';
@@ -23,8 +23,8 @@ export class UserController {
   async getUserById(@Param('id') id: string): Promise<UserModel> {
     return this.userService.user({ id: Number(id) });
   }
-  @Get('me')
-  getMe(): string {
-    return 'This is me';
+  @Delete(':id')
+  deleteUserById(@Param('id') id: string): Promise<UserModel> {
+    return this.userService.deleteUser({ id: Number(id) });
   }
 }
