@@ -20,9 +20,8 @@ export class UserController {
     return this.userService.users({ orderBy: { id: 'asc' } });
   }
   @Get(':id')
-  getOneUser(@Param() p: any): string {
-    console.log(p.id);
-    return `This is user ${p.id}`;
+  async getUserById(@Param('id') id: string): Promise<UserModel> {
+    return this.userService.user({ id: Number(id) });
   }
   @Get('me')
   getMe(): string {
