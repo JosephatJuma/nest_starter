@@ -3,7 +3,8 @@ import { Body, Delete } from '@nestjs/common';
 //import { CreateUserDto } from './create-user-dto';
 import { UserService } from './user.service';
 import { User as UserModel } from '@prisma/client';
-@Controller('user')
+
+@Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}
   @Post()
