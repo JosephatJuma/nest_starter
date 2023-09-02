@@ -57,7 +57,7 @@ export class PostController {
     if (!update) {
       return res
         .status(HttpStatus.NOT_FOUND)
-        .json({ message: `No Post with id ${id} found to update`});
+        .json({ message: `No Post with id ${id} found to update` });
     }
     return res
       .status(HttpStatus.ACCEPTED)
